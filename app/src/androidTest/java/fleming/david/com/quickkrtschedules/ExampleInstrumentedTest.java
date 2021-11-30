@@ -1,4 +1,4 @@
-package fleming.david.com.krtbusscedules;
+package fleming.david.com.quickkrtschedules;
 
 import android.content.Context;
 

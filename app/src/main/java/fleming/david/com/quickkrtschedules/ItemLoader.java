@@ -1,4 +1,4 @@
-package fleming.david.com.krtbusschedules;
+package fleming.david.com.quickkrtschedules;
 
 import java.util.ArrayList;
 

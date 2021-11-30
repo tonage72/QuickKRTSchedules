@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fleming.david.com.krtbusschedules">
+    package="fleming.david.com.quickkrtschedules">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="fleming.david.com.krtbusschedules.KRTActivity"
+            android:name="fleming.david.com.quickkrtschedules.KRTActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,27 +16,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="fleming.david.com.krtbusschedules.RouteSelectActivity"
+            android:name="fleming.david.com.quickkrtschedules.RouteSelectActivity"
             android:noHistory="true"
             android:label="RouteSelectActivity" >
         </activity>
         <activity
-            android:name="fleming.david.com.krtbusschedules.DaySelectActivity"
+            android:name="fleming.david.com.quickkrtschedules.DaySelectActivity"
             android:noHistory="true"
             android:label="DaySelectActivity" >
         </activity>
         <activity
-            android:name="fleming.david.com.krtbusschedules.DirectionSelectActivity"
+            android:name="fleming.david.com.quickkrtschedules.DirectionSelectActivity"
             android:noHistory="true"
             android:label="DirectionSelectActivity" >
         </activity>
         <activity
-            android:name="fleming.david.com.krtbusschedules.TimepointSelectActivity"
+            android:name="fleming.david.com.quickkrtschedules.TimepointSelectActivity"
             android:noHistory="true"
             android:label="TimepointSelectActivity" >
         </activity>
         <activity
-            android:name="fleming.david.com.krtbusschedules.ListEntireTripActivity"
+            android:name="fleming.david.com.quickkrtschedules.ListEntireTripActivity"
             android:noHistory="true"
             android:label="ListEntireTripActivity">
         </activity>
