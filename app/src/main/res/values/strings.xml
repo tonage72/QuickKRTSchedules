@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quick KRT Schedules</string>
+
+    <string name="no_route">SELECT ROUTE</string>
+    <string name="no_day">SELECT DAY OF WEEK</string>
+    <string name="no_direction">SELECT DIRECTION</string>
+    <string name="no_timepoint">SELECT TIMEPOINT</string>
+
+    <string name="route_first">SELECT ROUTE FIRST</string>
+    <string name="day_first">SELECT DAY OF WEEK FIRST</string>
+    <string name="direction_first">SELECT DIRECTION FIRST</string>
+
+    <string name="select_all">Select all above</string>
+    <string name="select_timepoint">Select time for whole route</string>
+
+    <string name="go_back">Go Back</string>
+
+    <string-array name="routes_arrays">
+        <item>1SA St Albans</item>
+        <item>1WC West Charleston</item>
+        <item>2CC Cabin Creek</item>
+        <item>2KC Kanawha City</item>
+        <item>3N Nitro</item>
+        <item>3I Institute/WVSU</item>
+        <item>5 Tyler Mtn/Cross Lanes</item>
+        <item>6 Elkview</item>
+        <item>7 Campbells Creek</item>
+        <item>8 Sissonville</item>
+        <item>10 Northgate/Hillcrest Drive</item>
+        <item>11 Wertz Avenue</item>
+        <item>13 Beech Avenue</item>
+        <item>14 City Park</item>
+        <item>15 South Hills</item>
+        <item>16 South Park</item>
+        <item>17 South Side</item>
+        <item>18 Fort Hill/Montrose</item>
+        <item>19 Charleston Loop/Trolley</item>
+        <item>20 Virginia St/Capitol Complex</item>
+        <item>21 Southridge/Trace Fork/Dudley Farms</item>
+        <item>22M Montgomery</item>
+        <item>22Q Quincy Mall</item>
+        <item>23 Clendenin</item>
+    </string-array>
+
+</resources>
