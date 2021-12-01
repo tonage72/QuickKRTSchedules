@@ -126,7 +126,6 @@ public class KRTActivity extends Activity {
             selectPreviousFirst(buttonTimepoint);
         }
 
-        LinearLayout mTextTimeOutput = findViewById(R.id.mainLayout);
         if (intent.hasExtra("timepointSelected")) {
 
             final String mRoute = intent.getStringExtra("routeSelected");

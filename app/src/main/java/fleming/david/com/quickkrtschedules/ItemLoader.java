@@ -6,7 +6,7 @@ class ItemLoader {
 
     protected static String[] getDayItems(String mRouteSelected) {
 
-        ArrayList mTempDays = new ArrayList();
+        ArrayList<String> mTempDays = new ArrayList<>();
 
         switch (mRouteSelected) {
             case "5 Tyler Mtn/Cross Lanes":
@@ -69,36 +69,33 @@ class ItemLoader {
         String[] mDays = new String[mTempDays.size()];
 
         for (int i = 0; i < mDays.length; i++)
-            mDays[i] = mTempDays.get(i).toString();
+            mDays[i] = mTempDays.get(i);
 
         return mDays;
     }
 
     protected static String[] getDirectionItems(String mRouteSelected) {
 
-        ArrayList mTempDirections = new ArrayList();
+        ArrayList<String> mTempDirections = new ArrayList<>();
 
-        switch (mRouteSelected) {
-            case "19 Charleston Loop/Trolley":
-                mTempDirections.add("Loop");
-            break;
-            default:
-                mTempDirections.add("Inbound");
-                mTempDirections.add("Outbound");
-            break;
+        if ("19 Charleston Loop/Trolley".equals(mRouteSelected)) {
+            mTempDirections.add("Loop");
+        } else {
+            mTempDirections.add("Inbound");
+            mTempDirections.add("Outbound");
         }
 
         String[] mDirections = new String[mTempDirections.size()];
 
         for (int i = 0; i < mDirections.length; i++)
-            mDirections[i] = mTempDirections.get(i).toString();
+            mDirections[i] = mTempDirections.get(i);
 
         return mDirections;
     }
 
     protected static String[] getTimepoints(String mRouteSelected,String mDaySelected,String mDirectionSelected) {
 
-        ArrayList mTimepointsList = new ArrayList();
+        ArrayList<String> mTimepointsList = new ArrayList<>();
 
         switch (mRouteSelected) {
             case "1SA St Albans":
@@ -199,44 +196,41 @@ class ItemLoader {
                 break;
 
             case "3I Institute/WVSU": //Needs 2 switches to remove Stockton and Washington from all but M-F inbound
-                switch (mDaySelected) {
-                    case "Monday-Friday":
-                        switch (mDirectionSelected) {
-                            case "Outbound":
-                                mTimepointsList.add("Capitol Complex");
-                                mTimepointsList.add("Laidley Transit Mall");
-                                mTimepointsList.add("7th Ave and 26th St");
-                                mTimepointsList.add("12th and Dunbar Ave");
-                                mTimepointsList.add("WV State University");
-                                break;
-                            case "Inbound":
-                                mTimepointsList.add("WV State University");
-                                mTimepointsList.add("12th and Dunbar Ave");
-                                mTimepointsList.add("7th Ave and 26th St");
-                                mTimepointsList.add("Stockton and W Washington");
-                                mTimepointsList.add("Laidley Transit Mall");
-                                mTimepointsList.add("Capitol Complex");
-                                break;
-                        }
-                        break;
-                    default:
-                        switch (mDirectionSelected) {
-                            case "Outbound":
-                                mTimepointsList.add("Capitol Complex");
-                                mTimepointsList.add("Laidley Transit Mall");
-                                mTimepointsList.add("7th Ave and 26th St");
-                                mTimepointsList.add("12th and Dunbar Ave");
-                                mTimepointsList.add("WV State University");
-                                break;
-                            case "Inbound":
-                                mTimepointsList.add("WV State University");
-                                mTimepointsList.add("12th and Dunbar Ave");
-                                mTimepointsList.add("7th Ave and 26th St");
-                                mTimepointsList.add("Laidley Transit Mall");
-                                mTimepointsList.add("Capitol Complex");
-                                break;
-                        }
-                        break;
+                if ("Monday-Friday".equals(mDaySelected)) {
+                    switch (mDirectionSelected) {
+                        case "Outbound":
+                            mTimepointsList.add("Capitol Complex");
+                            mTimepointsList.add("Laidley Transit Mall");
+                            mTimepointsList.add("7th Ave and 26th St");
+                            mTimepointsList.add("12th and Dunbar Ave");
+                            mTimepointsList.add("WV State University");
+                            break;
+                        case "Inbound":
+                            mTimepointsList.add("WV State University");
+                            mTimepointsList.add("12th and Dunbar Ave");
+                            mTimepointsList.add("7th Ave and 26th St");
+                            mTimepointsList.add("Stockton and W Washington");
+                            mTimepointsList.add("Laidley Transit Mall");
+                            mTimepointsList.add("Capitol Complex");
+                            break;
+                    }
+                } else {
+                    switch (mDirectionSelected) {
+                        case "Outbound":
+                            mTimepointsList.add("Capitol Complex");
+                            mTimepointsList.add("Laidley Transit Mall");
+                            mTimepointsList.add("7th Ave and 26th St");
+                            mTimepointsList.add("12th and Dunbar Ave");
+                            mTimepointsList.add("WV State University");
+                            break;
+                        case "Inbound":
+                            mTimepointsList.add("WV State University");
+                            mTimepointsList.add("12th and Dunbar Ave");
+                            mTimepointsList.add("7th Ave and 26th St");
+                            mTimepointsList.add("Laidley Transit Mall");
+                            mTimepointsList.add("Capitol Complex");
+                            break;
+                    }
                 }
                 break;
 
@@ -488,43 +482,40 @@ class ItemLoader {
                 break;
 
             case "22Q Quincy Mall": //Needs 2 switches because Walmart and Quincy Mall are reversed on Sunday in and out.
-                switch (mDaySelected) {
-                    case "Sunday":
-                        switch (mDirectionSelected) {
-                            case "Outbound":
-                                mTimepointsList.add("Laidley Transit Mall");
-                                mTimepointsList.add("Capitol Complex");
-                                mTimepointsList.add("Malden Underpass");
-                                mTimepointsList.add("Quincy Walmart");
-                                mTimepointsList.add("Quincy Mall");
-                                break;
-                            case "Inbound":
-                                mTimepointsList.add("Quincy Mall");
-                                mTimepointsList.add("Quincy Walmart");
-                                mTimepointsList.add("Malden Underpass");
-                                mTimepointsList.add("Capitol Complex");
-                                mTimepointsList.add("Laidley Transit Mall");
-                                break;
-                        }
-                        break;
-                    default:
-                        switch (mDirectionSelected) {
-                            case "Outbound":
-                                mTimepointsList.add("Laidley Transit Mall");
-                                mTimepointsList.add("Capitol Complex");
-                                mTimepointsList.add("Malden Underpass");
-                                mTimepointsList.add("Quincy Mall");
-                                mTimepointsList.add("Quincy Walmart");
-                                break;
-                            case "Inbound":
-                                mTimepointsList.add("Quincy Walmart");
-                                mTimepointsList.add("Quincy Mall");
-                                mTimepointsList.add("Malden Underpass");
-                                mTimepointsList.add("Capitol Complex");
-                                mTimepointsList.add("Laidley Transit Mall");
-                                break;
-                        }
-                        break;
+                if ("Sunday".equals(mDaySelected)) {
+                    switch (mDirectionSelected) {
+                        case "Outbound":
+                            mTimepointsList.add("Laidley Transit Mall");
+                            mTimepointsList.add("Capitol Complex");
+                            mTimepointsList.add("Malden Underpass");
+                            mTimepointsList.add("Quincy Walmart");
+                            mTimepointsList.add("Quincy Mall");
+                            break;
+                        case "Inbound":
+                            mTimepointsList.add("Quincy Mall");
+                            mTimepointsList.add("Quincy Walmart");
+                            mTimepointsList.add("Malden Underpass");
+                            mTimepointsList.add("Capitol Complex");
+                            mTimepointsList.add("Laidley Transit Mall");
+                            break;
+                    }
+                } else {
+                    switch (mDirectionSelected) {
+                        case "Outbound":
+                            mTimepointsList.add("Laidley Transit Mall");
+                            mTimepointsList.add("Capitol Complex");
+                            mTimepointsList.add("Malden Underpass");
+                            mTimepointsList.add("Quincy Mall");
+                            mTimepointsList.add("Quincy Walmart");
+                            break;
+                        case "Inbound":
+                            mTimepointsList.add("Quincy Walmart");
+                            mTimepointsList.add("Quincy Mall");
+                            mTimepointsList.add("Malden Underpass");
+                            mTimepointsList.add("Capitol Complex");
+                            mTimepointsList.add("Laidley Transit Mall");
+                            break;
+                    }
                 }
                 break;
 
@@ -595,14 +586,14 @@ class ItemLoader {
         String[] mTimepoints = new String[mTimepointsList.size()];
 
         for (int i = 0; i < mTimepoints.length; i++)
-            mTimepoints[i] = mTimepointsList.get(i).toString();
+            mTimepoints[i] = mTimepointsList.get(i);
 
         return mTimepoints;
     }
 
     protected static String[] getTimes1SA(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -1301,14 +1292,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes1WC(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -1976,14 +1967,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes2CC(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -2645,14 +2636,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes2KC(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -3143,14 +3134,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes3N(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -4175,14 +4166,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes3I(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -5168,14 +5159,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes5(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -5571,14 +5562,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes6(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -5778,97 +5769,95 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes7(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
-        switch (mDay) {
-            case "Monday-Friday":
-                switch (mDirection) {
-                    case "Outbound":
-                        switch (mTimepoint) {
-                            case "Laidley Transit Mall":
-                                mTimesList.add("6:45 a.m.");
-                                mTimesList.add("8:45 a.m.");
-                                mTimesList.add("12:15 p.m.");
-                                mTimesList.add("2:45 p.m.");
-                                mTimesList.add("5:15 p.m.");
-                                break;
-                            case "CAMC Memorial":
-                                mTimesList.add("6:56 a.m.");
-                                mTimesList.add("8:56 a.m.");
-                                mTimesList.add("12:26 p.m.");
-                                mTimesList.add("2:56 p.m.");
-                                mTimesList.add("5:26 p.m.");
-                                break;
-                            case "57th at MacCorkle":
-                                mTimesList.add("7:10 a.m.");
-                                mTimesList.add("9:10 a.m.");
-                                mTimesList.add("12:40 p.m.");
-                                mTimesList.add("3:10 p.m.");
-                                mTimesList.add("5:40 p.m.");
-                                break;
-                            case "Cambronne Lane":
-                                mTimesList.add("7:35 a.m.");
-                                mTimesList.add("9:35 a.m.");
-                                mTimesList.add("1:05 p.m.");
-                                mTimesList.add("3:35 p.m.");
-                                mTimesList.add("6:05 p.m.");
-                                break;
-                        }
-                        break;
-                    case "Inbound":
-                        switch (mTimepoint) {
-                            case "Cambronne Lane":
-                                mTimesList.add("7:50 a.m.");
-                                mTimesList.add("9:50 a.m.");
-                                mTimesList.add("1:20 p.m.");
-                                mTimesList.add("4:20 p.m.");
-                                mTimesList.add("6:20 p.m.");
-                                break;
-                            case "57th at MacCorkle":
-                                mTimesList.add("8:15 a.m.");
-                                mTimesList.add("10:15 a.m.");
-                                mTimesList.add("1:45 p.m.");
-                                mTimesList.add("4:45 p.m.");
-                                mTimesList.add("6:45 p.m.");
-                                break;
-                            case "CAMC Memorial":
-                                mTimesList.add("8:29 a.m.");
-                                mTimesList.add("10:29 a.m.");
-                                mTimesList.add("1:59 p.m.");
-                                mTimesList.add("4:59 p.m.");
-                                mTimesList.add("6:59 p.m.");
-                                break;
-                            case "Laidley Transit Mall":
-                                mTimesList.add("8:45 a.m.");
-                                mTimesList.add("10:45 a.m.");
-                                mTimesList.add("2:15 p.m.");
-                                mTimesList.add("5:15 p.m.");
-                                mTimesList.add("7:15 p.m.");
-                                break;
-                        }
-                        break;
-                }
-                break;
+        if ("Monday-Friday".equals(mDay)) {
+            switch (mDirection) {
+                case "Outbound":
+                    switch (mTimepoint) {
+                        case "Laidley Transit Mall":
+                            mTimesList.add("6:45 a.m.");
+                            mTimesList.add("8:45 a.m.");
+                            mTimesList.add("12:15 p.m.");
+                            mTimesList.add("2:45 p.m.");
+                            mTimesList.add("5:15 p.m.");
+                            break;
+                        case "CAMC Memorial":
+                            mTimesList.add("6:56 a.m.");
+                            mTimesList.add("8:56 a.m.");
+                            mTimesList.add("12:26 p.m.");
+                            mTimesList.add("2:56 p.m.");
+                            mTimesList.add("5:26 p.m.");
+                            break;
+                        case "57th at MacCorkle":
+                            mTimesList.add("7:10 a.m.");
+                            mTimesList.add("9:10 a.m.");
+                            mTimesList.add("12:40 p.m.");
+                            mTimesList.add("3:10 p.m.");
+                            mTimesList.add("5:40 p.m.");
+                            break;
+                        case "Cambronne Lane":
+                            mTimesList.add("7:35 a.m.");
+                            mTimesList.add("9:35 a.m.");
+                            mTimesList.add("1:05 p.m.");
+                            mTimesList.add("3:35 p.m.");
+                            mTimesList.add("6:05 p.m.");
+                            break;
+                    }
+                    break;
+                case "Inbound":
+                    switch (mTimepoint) {
+                        case "Cambronne Lane":
+                            mTimesList.add("7:50 a.m.");
+                            mTimesList.add("9:50 a.m.");
+                            mTimesList.add("1:20 p.m.");
+                            mTimesList.add("4:20 p.m.");
+                            mTimesList.add("6:20 p.m.");
+                            break;
+                        case "57th at MacCorkle":
+                            mTimesList.add("8:15 a.m.");
+                            mTimesList.add("10:15 a.m.");
+                            mTimesList.add("1:45 p.m.");
+                            mTimesList.add("4:45 p.m.");
+                            mTimesList.add("6:45 p.m.");
+                            break;
+                        case "CAMC Memorial":
+                            mTimesList.add("8:29 a.m.");
+                            mTimesList.add("10:29 a.m.");
+                            mTimesList.add("1:59 p.m.");
+                            mTimesList.add("4:59 p.m.");
+                            mTimesList.add("6:59 p.m.");
+                            break;
+                        case "Laidley Transit Mall":
+                            mTimesList.add("8:45 a.m.");
+                            mTimesList.add("10:45 a.m.");
+                            mTimesList.add("2:15 p.m.");
+                            mTimesList.add("5:15 p.m.");
+                            mTimesList.add("7:15 p.m.");
+                            break;
+                    }
+                    break;
+            }
         }
 
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes8(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -6076,97 +6065,95 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes10(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
-        switch (mDay) {
-            case "Monday-Friday":
-                switch (mDirection) {
-                    case "Outbound":
-                        switch (mTimepoint) {
-                            case "Laidley Transit Mall":
-                                mTimesList.add("6:30 a.m.");
-                                mTimesList.add("7:30 a.m.");
-                                mTimesList.add("12:00 p.m.");
-                                mTimesList.add("4:30 p.m.");
-                                mTimesList.add("5:30 p.m.");
-                                break;
-                            case "Greenbrier at Washington":
-                                mTimesList.add("6:40 a.m.");
-                                mTimesList.add("7:40 a.m.");
-                                mTimesList.add("12:10 p.m.");
-                                mTimesList.add("4:40 p.m.");
-                                mTimesList.add("5:40 p.m.");
-                                break;
-                            case "YMCA":
-                                mTimesList.add("6:47 a.m.");
-                                mTimesList.add("7:47 a.m.");
-                                mTimesList.add("12:17 p.m.");
-                                mTimesList.add("4:47 p.m.");
-                                mTimesList.add("5:47 p.m.");
-                                break;
-                            case "Hillcrest Apartments":
-                                mTimesList.add("6:52 a.m.");
-                                mTimesList.add("7:52 a.m.");
-                                mTimesList.add("12:22 p.m.");
-                                mTimesList.add("4:52 p.m.");
-                                mTimesList.add("5:52 p.m.");
-                                break;
-                            case "Northgate Business Park":
-                                mTimesList.add("7:05 a.m.");
-                                mTimesList.add("8:05 a.m.");
-                                mTimesList.add("12:35 p.m.");
-                                mTimesList.add("5:05 p.m.");
-                                mTimesList.add("6:05 p.m.");
-                                break;
-                        }
-                        break;
-                    case "Inbound":
-                        switch (mTimepoint) {
-                            case "Northgate Business Park":
-                                mTimesList.add("7:05 a.m.");
-                                mTimesList.add("8:05 a.m.");
-                                mTimesList.add("12:35 p.m.");
-                                mTimesList.add("5:05 p.m.");
-                                mTimesList.add("6:05 p.m.");
-                                break;
-                            case "Greenbrier at Washington":
-                                mTimesList.add("7:15 a.m.");
-                                mTimesList.add("8:15 a.m.");
-                                mTimesList.add("12:45 p.m.");
-                                mTimesList.add("5:15 p.m.");
-                                mTimesList.add("6:15 p.m.");
-                                break;
-                            case "Laidley Transit Mall":
-                                mTimesList.add("7:30 a.m.");
-                                mTimesList.add("8:30 a.m.");
-                                mTimesList.add("1:00 p.m.");
-                                mTimesList.add("5:30 p.m.");
-                                mTimesList.add("6:30 p.m.");
-                                break;
-                        }
-                        break;
-                }
-                break;
+        if ("Monday-Friday".equals(mDay)) {
+            switch (mDirection) {
+                case "Outbound":
+                    switch (mTimepoint) {
+                        case "Laidley Transit Mall":
+                            mTimesList.add("6:30 a.m.");
+                            mTimesList.add("7:30 a.m.");
+                            mTimesList.add("12:00 p.m.");
+                            mTimesList.add("4:30 p.m.");
+                            mTimesList.add("5:30 p.m.");
+                            break;
+                        case "Greenbrier at Washington":
+                            mTimesList.add("6:40 a.m.");
+                            mTimesList.add("7:40 a.m.");
+                            mTimesList.add("12:10 p.m.");
+                            mTimesList.add("4:40 p.m.");
+                            mTimesList.add("5:40 p.m.");
+                            break;
+                        case "YMCA":
+                            mTimesList.add("6:47 a.m.");
+                            mTimesList.add("7:47 a.m.");
+                            mTimesList.add("12:17 p.m.");
+                            mTimesList.add("4:47 p.m.");
+                            mTimesList.add("5:47 p.m.");
+                            break;
+                        case "Hillcrest Apartments":
+                            mTimesList.add("6:52 a.m.");
+                            mTimesList.add("7:52 a.m.");
+                            mTimesList.add("12:22 p.m.");
+                            mTimesList.add("4:52 p.m.");
+                            mTimesList.add("5:52 p.m.");
+                            break;
+                        case "Northgate Business Park":
+                            mTimesList.add("7:05 a.m.");
+                            mTimesList.add("8:05 a.m.");
+                            mTimesList.add("12:35 p.m.");
+                            mTimesList.add("5:05 p.m.");
+                            mTimesList.add("6:05 p.m.");
+                            break;
+                    }
+                    break;
+                case "Inbound":
+                    switch (mTimepoint) {
+                        case "Northgate Business Park":
+                            mTimesList.add("7:05 a.m.");
+                            mTimesList.add("8:05 a.m.");
+                            mTimesList.add("12:35 p.m.");
+                            mTimesList.add("5:05 p.m.");
+                            mTimesList.add("6:05 p.m.");
+                            break;
+                        case "Greenbrier at Washington":
+                            mTimesList.add("7:15 a.m.");
+                            mTimesList.add("8:15 a.m.");
+                            mTimesList.add("12:45 p.m.");
+                            mTimesList.add("5:15 p.m.");
+                            mTimesList.add("6:15 p.m.");
+                            break;
+                        case "Laidley Transit Mall":
+                            mTimesList.add("7:30 a.m.");
+                            mTimesList.add("8:30 a.m.");
+                            mTimesList.add("1:00 p.m.");
+                            mTimesList.add("5:30 p.m.");
+                            mTimesList.add("6:30 p.m.");
+                            break;
+                    }
+                    break;
+            }
         }
 
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes11(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -6390,14 +6377,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes13(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -6573,14 +6560,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes14(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -6762,14 +6749,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes15(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -6963,14 +6950,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes16(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -7134,14 +7121,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes17(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -7377,14 +7364,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes18(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -7668,14 +7655,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes20(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -8047,14 +8034,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes21(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -8447,14 +8434,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes22M(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -9030,14 +9017,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes22Q(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -9761,14 +9748,14 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes23(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
@@ -10160,190 +10147,186 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
 
     protected static String[] getTimes19(String mDay, String mDirection, String mTimepoint) {
 
-        ArrayList mTimesList = new ArrayList();
+        ArrayList<String> mTimesList = new ArrayList<>();
 
         switch (mDay) {
             case "Monday-Friday":
-                switch (mDirection) {
-                    case "Loop":
-                        switch (mTimepoint) {
-                            case "Lee St at Maryland Ave (start route)":
-                                mTimesList.add("10:30 a.m.");
-                                mTimesList.add("11:30 a.m.");
-                                mTimesList.add("12:30 p.m.");
-                                mTimesList.add("1:30 p.m.");
-                                mTimesList.add("2:30 p.m.\n(To Transit Mall only");
-                                mTimesList.add("-");
-                                mTimesList.add("4:00 p.m.");
-                                mTimesList.add("5:00 p.m.");
-                                break;
-                            case "Laidley Transit Mall":
-                                mTimesList.add("10:36 a.m.");
-                                mTimesList.add("11:36 a.m.");
-                                mTimesList.add("12:36 p.m.");
-                                mTimesList.add("1:36 p.m.");
-                                mTimesList.add("2:36 p.m.\n(End of route)");
-                                mTimesList.add("3:06 p.m.");
-                                mTimesList.add("4:06 p.m.");
-                                mTimesList.add("5:06 p.m.");
-                                break;
-                            case "Capitol Market (eastbound)":
-                                mTimesList.add("10:42 a.m.");
-                                mTimesList.add("11:42 a.m.");
-                                mTimesList.add("12:42 p.m.");
-                                mTimesList.add("1:42 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:12 p.m.");
-                                mTimesList.add("4:12 p.m.");
-                                mTimesList.add("5:12 p.m.");
-                                break;
-                            case "California Ave at Washington St":
-                                mTimesList.add("11:00 a.m.");
-                                mTimesList.add("12:00 p.m.");
-                                mTimesList.add("1:00 p.m.");
-                                mTimesList.add("2:00 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:30 p.m.");
-                                mTimesList.add("4:30 p.m.");
-                                mTimesList.add("5:30 p.m.");
-                                break;
-                            case "Quarrier St at Capitol St":
-                                mTimesList.add("11:08 a.m.");
-                                mTimesList.add("12:08 p.m.");
-                                mTimesList.add("1:08 p.m.");
-                                mTimesList.add("2:08 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:38 p.m.");
-                                mTimesList.add("4:38 p.m.");
-                                mTimesList.add("5:38 p.m.");
-                                break;
-                            case "Capitol Market (westbound)":
-                                mTimesList.add("11:12 a.m.");
-                                mTimesList.add("12:12 p.m.");
-                                mTimesList.add("1:12 p.m.");
-                                mTimesList.add("2:12 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:42 p.m.");
-                                mTimesList.add("4:42 p.m.");
-                                mTimesList.add("5:42 p.m.");
-                                break;
-                            case "Bigley Ave at Ash St":
-                                mTimesList.add("11:20 a.m.");
-                                mTimesList.add("12:20 p.m.");
-                                mTimesList.add("1:20 p.m.");
-                                mTimesList.add("2:20 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:50 p.m.");
-                                mTimesList.add("4:50 p.m.");
-                                mTimesList.add("5:50 p.m.");
-                                break;
-                            case "Lee St at Maryland Ave (end route)":
-                                mTimesList.add("11:30 a.m.");
-                                mTimesList.add("12:30 p.m.");
-                                mTimesList.add("1:30 p.m.");
-                                mTimesList.add("2:30 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("4:00 p.m.");
-                                mTimesList.add("5:00 p.m.");
-                                mTimesList.add("6:00 p.m.");
-                                break;
-                        }
-                        break;
+                if ("Loop".equals(mDirection)) {
+                    switch (mTimepoint) {
+                        case "Lee St at Maryland Ave (start route)":
+                            mTimesList.add("10:30 a.m.");
+                            mTimesList.add("11:30 a.m.");
+                            mTimesList.add("12:30 p.m.");
+                            mTimesList.add("1:30 p.m.");
+                            mTimesList.add("2:30 p.m.\n(To Transit Mall only");
+                            mTimesList.add("-");
+                            mTimesList.add("4:00 p.m.");
+                            mTimesList.add("5:00 p.m.");
+                            break;
+                        case "Laidley Transit Mall":
+                            mTimesList.add("10:36 a.m.");
+                            mTimesList.add("11:36 a.m.");
+                            mTimesList.add("12:36 p.m.");
+                            mTimesList.add("1:36 p.m.");
+                            mTimesList.add("2:36 p.m.\n(End of route)");
+                            mTimesList.add("3:06 p.m.");
+                            mTimesList.add("4:06 p.m.");
+                            mTimesList.add("5:06 p.m.");
+                            break;
+                        case "Capitol Market (eastbound)":
+                            mTimesList.add("10:42 a.m.");
+                            mTimesList.add("11:42 a.m.");
+                            mTimesList.add("12:42 p.m.");
+                            mTimesList.add("1:42 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:12 p.m.");
+                            mTimesList.add("4:12 p.m.");
+                            mTimesList.add("5:12 p.m.");
+                            break;
+                        case "California Ave at Washington St":
+                            mTimesList.add("11:00 a.m.");
+                            mTimesList.add("12:00 p.m.");
+                            mTimesList.add("1:00 p.m.");
+                            mTimesList.add("2:00 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:30 p.m.");
+                            mTimesList.add("4:30 p.m.");
+                            mTimesList.add("5:30 p.m.");
+                            break;
+                        case "Quarrier St at Capitol St":
+                            mTimesList.add("11:08 a.m.");
+                            mTimesList.add("12:08 p.m.");
+                            mTimesList.add("1:08 p.m.");
+                            mTimesList.add("2:08 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:38 p.m.");
+                            mTimesList.add("4:38 p.m.");
+                            mTimesList.add("5:38 p.m.");
+                            break;
+                        case "Capitol Market (westbound)":
+                            mTimesList.add("11:12 a.m.");
+                            mTimesList.add("12:12 p.m.");
+                            mTimesList.add("1:12 p.m.");
+                            mTimesList.add("2:12 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:42 p.m.");
+                            mTimesList.add("4:42 p.m.");
+                            mTimesList.add("5:42 p.m.");
+                            break;
+                        case "Bigley Ave at Ash St":
+                            mTimesList.add("11:20 a.m.");
+                            mTimesList.add("12:20 p.m.");
+                            mTimesList.add("1:20 p.m.");
+                            mTimesList.add("2:20 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:50 p.m.");
+                            mTimesList.add("4:50 p.m.");
+                            mTimesList.add("5:50 p.m.");
+                            break;
+                        case "Lee St at Maryland Ave (end route)":
+                            mTimesList.add("11:30 a.m.");
+                            mTimesList.add("12:30 p.m.");
+                            mTimesList.add("1:30 p.m.");
+                            mTimesList.add("2:30 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("4:00 p.m.");
+                            mTimesList.add("5:00 p.m.");
+                            mTimesList.add("6:00 p.m.");
+                            break;
+                    }
                 }
                 break;
             case "Saturday":
-                switch (mDirection) {
-                    case "Loop":
-                        switch (mTimepoint) {
-                            case "Lee St at Maryland Ave (start route)":
-                                mTimesList.add("10:30 a.m.");
-                                mTimesList.add("11:30 a.m.");
-                                mTimesList.add("12:30 p.m.");
-                                mTimesList.add("1:30 p.m.");
-                                mTimesList.add("2:30 p.m.\n(To Transit Mall only)");
-                                mTimesList.add("-");
-                                mTimesList.add("4:00 p.m.");
-                                mTimesList.add("5:00 p.m.");
-                                break;
-                            case "Laidley Transit Mall":
-                                mTimesList.add("10:36 a.m.");
-                                mTimesList.add("11:36 a.m.");
-                                mTimesList.add("12:36 p.m.");
-                                mTimesList.add("1:36 p.m.");
-                                mTimesList.add("2:36 p.m.\n(End of route)");
-                                mTimesList.add("3:06 p.m.");
-                                mTimesList.add("4:06 p.m.");
-                                mTimesList.add("5:06 p.m.");
-                                break;
-                            case "Capitol Market (eastbound)":
-                                mTimesList.add("10:42 a.m.");
-                                mTimesList.add("11:42 a.m.");
-                                mTimesList.add("12:42 p.m.");
-                                mTimesList.add("1:42 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:12 p.m.");
-                                mTimesList.add("4:12 p.m.");
-                                mTimesList.add("5:12 p.m.");
-                                break;
-                            case "California Ave at Washington St":
-                                mTimesList.add("11:00 a.m.");
-                                mTimesList.add("12:00 p.m.");
-                                mTimesList.add("1:00 p.m.");
-                                mTimesList.add("2:00 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:30 p.m.");
-                                mTimesList.add("4:30 p.m.");
-                                mTimesList.add("5:30 p.m.");
-                                break;
-                            case "Quarrier St at Capitol St":
-                                mTimesList.add("11:08 a.m.");
-                                mTimesList.add("12:08 p.m.");
-                                mTimesList.add("1:08 p.m.");
-                                mTimesList.add("2:08 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:38 p.m.");
-                                mTimesList.add("4:38 p.m.");
-                                mTimesList.add("5:38 p.m.");
-                                break;
-                            case "Capitol Market (westbound)":
-                                mTimesList.add("11:12 a.m.");
-                                mTimesList.add("12:12 p.m.");
-                                mTimesList.add("1:12 p.m.");
-                                mTimesList.add("2:12 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:42 p.m.");
-                                mTimesList.add("4:42 p.m.");
-                                mTimesList.add("5:42 p.m.");
-                                break;
-                            case "Bigley Ave at Ash St":
-                                mTimesList.add("11:20 a.m.");
-                                mTimesList.add("12:20 p.m.");
-                                mTimesList.add("1:20 p.m.");
-                                mTimesList.add("2:20 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("3:50 p.m.");
-                                mTimesList.add("4:50 p.m.");
-                                mTimesList.add("5:50 p.m.");
-                                break;
-                            case "Lee St at Maryland Ave (end route)":
-                                mTimesList.add("11:30 a.m.");
-                                mTimesList.add("12:30 p.m.");
-                                mTimesList.add("1:30 p.m.");
-                                mTimesList.add("2:30 p.m.");
-                                mTimesList.add("-");
-                                mTimesList.add("4:00 p.m.");
-                                mTimesList.add("5:00 p.m.");
-                                mTimesList.add("6:00 p.m.");
-                                break;
-                        }
-                        break;
+                if ("Loop".equals(mDirection)) {
+                    switch (mTimepoint) {
+                        case "Lee St at Maryland Ave (start route)":
+                            mTimesList.add("10:30 a.m.");
+                            mTimesList.add("11:30 a.m.");
+                            mTimesList.add("12:30 p.m.");
+                            mTimesList.add("1:30 p.m.");
+                            mTimesList.add("2:30 p.m.\n(To Transit Mall only)");
+                            mTimesList.add("-");
+                            mTimesList.add("4:00 p.m.");
+                            mTimesList.add("5:00 p.m.");
+                            break;
+                        case "Laidley Transit Mall":
+                            mTimesList.add("10:36 a.m.");
+                            mTimesList.add("11:36 a.m.");
+                            mTimesList.add("12:36 p.m.");
+                            mTimesList.add("1:36 p.m.");
+                            mTimesList.add("2:36 p.m.\n(End of route)");
+                            mTimesList.add("3:06 p.m.");
+                            mTimesList.add("4:06 p.m.");
+                            mTimesList.add("5:06 p.m.");
+                            break;
+                        case "Capitol Market (eastbound)":
+                            mTimesList.add("10:42 a.m.");
+                            mTimesList.add("11:42 a.m.");
+                            mTimesList.add("12:42 p.m.");
+                            mTimesList.add("1:42 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:12 p.m.");
+                            mTimesList.add("4:12 p.m.");
+                            mTimesList.add("5:12 p.m.");
+                            break;
+                        case "California Ave at Washington St":
+                            mTimesList.add("11:00 a.m.");
+                            mTimesList.add("12:00 p.m.");
+                            mTimesList.add("1:00 p.m.");
+                            mTimesList.add("2:00 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:30 p.m.");
+                            mTimesList.add("4:30 p.m.");
+                            mTimesList.add("5:30 p.m.");
+                            break;
+                        case "Quarrier St at Capitol St":
+                            mTimesList.add("11:08 a.m.");
+                            mTimesList.add("12:08 p.m.");
+                            mTimesList.add("1:08 p.m.");
+                            mTimesList.add("2:08 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:38 p.m.");
+                            mTimesList.add("4:38 p.m.");
+                            mTimesList.add("5:38 p.m.");
+                            break;
+                        case "Capitol Market (westbound)":
+                            mTimesList.add("11:12 a.m.");
+                            mTimesList.add("12:12 p.m.");
+                            mTimesList.add("1:12 p.m.");
+                            mTimesList.add("2:12 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:42 p.m.");
+                            mTimesList.add("4:42 p.m.");
+                            mTimesList.add("5:42 p.m.");
+                            break;
+                        case "Bigley Ave at Ash St":
+                            mTimesList.add("11:20 a.m.");
+                            mTimesList.add("12:20 p.m.");
+                            mTimesList.add("1:20 p.m.");
+                            mTimesList.add("2:20 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("3:50 p.m.");
+                            mTimesList.add("4:50 p.m.");
+                            mTimesList.add("5:50 p.m.");
+                            break;
+                        case "Lee St at Maryland Ave (end route)":
+                            mTimesList.add("11:30 a.m.");
+                            mTimesList.add("12:30 p.m.");
+                            mTimesList.add("1:30 p.m.");
+                            mTimesList.add("2:30 p.m.");
+                            mTimesList.add("-");
+                            mTimesList.add("4:00 p.m.");
+                            mTimesList.add("5:00 p.m.");
+                            mTimesList.add("6:00 p.m.");
+                            break;
+                    }
                 }
                 break;
         }
@@ -10351,7 +10334,7 @@ class ItemLoader {
         String[] mTimes = new String[mTimesList.size()];
 
         for (int i = 0; i < mTimes.length; i++)
-            mTimes[i] = mTimesList.get(i).toString();
+            mTimes[i] = mTimesList.get(i);
 
         return mTimes;
     }
