@@ -27,7 +27,9 @@ public class TimepointSelectActivity extends Activity {
         final String daySelected = intent.getStringExtra("daySelected");
         final String directionSelected = intent.getStringExtra("directionSelected");
 
-         final String[] timepointsArray = ItemLoader.getTimepoints(routeSelected,daySelected,directionSelected);
+        TimepointsData timepointsData = new TimepointsData();
+
+        String[] timepointsArray = TimepointsData.getTimepoints(routeSelected,daySelected,directionSelected);
 
         LinearLayout layout = findViewById(R.id.TimepointLayout);
 

@@ -23,7 +23,9 @@ public class DirectionSelectActivity extends Activity {
         final String routeSelected = intent.getStringExtra("routeSelected");
         final String daySelected = intent.getStringExtra("daySelected");
 
-        final String[] directionsArray = ItemLoader.getDirectionItems(routeSelected);
+        DirectionsData directions = new DirectionsData();
+
+        String[] directionsArray = DirectionsData.getDirections(routeSelected);
 
         LinearLayout layout = findViewById(R.id.DirectionLayout);
 

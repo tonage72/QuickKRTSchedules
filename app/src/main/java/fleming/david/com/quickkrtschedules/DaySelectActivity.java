@@ -25,7 +25,9 @@ public class DaySelectActivity extends Activity {
 
         final String routeSelected = intent.getStringExtra("routeSelected");
 
-        final String[] daysArray = ItemLoader.getDayItems(routeSelected);
+        DaysData days = new DaysData();
+
+        String[] daysArray = DaysData.getDays(routeSelected);
 
         LinearLayout layout = findViewById(R.id.DaysLayout);
 
