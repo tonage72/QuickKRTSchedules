@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DaysData {
 
-    protected static String[] getDays(String mRouteSelected) {
+    protected String[] getDays(String mRouteSelected) {
 
         ArrayList<String> mTempDays = new ArrayList<>();
 

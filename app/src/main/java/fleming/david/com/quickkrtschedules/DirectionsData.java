@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DirectionsData {
 
-    protected static String[] getDirections(String mRouteSelected) {
+    protected String[] getDirections(String mRouteSelected) {
 
         ArrayList<String> mTempDirections = new ArrayList<>();
 

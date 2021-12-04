@@ -135,34 +135,44 @@ public class KRTActivity extends Activity {
 
             switch (mRoute) {
                 case "1SA St Albans":
-                    listOfTimes = ItemLoader.getTimes1SA(mDay, mDirection, mTimepoint);
+                    Rt1SAData rt1SAData = new Rt1SAData();
+                    listOfTimes = rt1SAData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "1WC West Charleston":
-                    listOfTimes = ItemLoader.getTimes1WC(mDay, mDirection, mTimepoint);
+                    Rt1WCData rt1WCData = new Rt1WCData();
+                    listOfTimes = rt1WCData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "2CC Cabin Creek":
-                    listOfTimes = ItemLoader.getTimes2CC(mDay, mDirection, mTimepoint);
+                    Rt2CCData rt2CCData = new Rt2CCData();
+                    listOfTimes = rt2CCData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "2KC Kanawha City":
-                    listOfTimes = ItemLoader.getTimes2KC(mDay, mDirection, mTimepoint);
+                    Rt2KCData rt2KCData = new Rt2KCData();
+                    listOfTimes = rt2KCData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "3N Nitro":
-                    listOfTimes = ItemLoader.getTimes3N(mDay, mDirection, mTimepoint);
+                    Rt3NData rt3NData = new Rt3NData();
+                    listOfTimes = rt3NData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "3I Institute/WVSU":
-                    listOfTimes = ItemLoader.getTimes3I(mDay, mDirection, mTimepoint);
+                    Rt3IData rt3IData = new Rt3IData();
+                    listOfTimes = rt3IData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "5 Tyler Mtn/Cross Lanes":
-                    listOfTimes = ItemLoader.getTimes5(mDay, mDirection, mTimepoint);
+                    Rt5Data rt5Data = new Rt5Data();
+                    listOfTimes = rt5Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "6 Elkview":
-                    listOfTimes = ItemLoader.getTimes6(mDay, mDirection, mTimepoint);
+                    Rt6Data rt6Data = new Rt6Data();
+                    listOfTimes = rt6Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "7 Campbells Creek":
-                    listOfTimes = ItemLoader.getTimes7(mDay, mDirection, mTimepoint);
+                    Rt7Data rt7Data = new Rt7Data();
+                    listOfTimes = rt7Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "8 Sissonville":
-                    listOfTimes = ItemLoader.getTimes8(mDay, mDirection, mTimepoint);
+                    Rt8Data rt8Data = new Rt8Data();
+                    listOfTimes = rt8Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "10 Northgate/Hillcrest Drive":
                     listOfTimes = ItemLoader.getTimes10(mDay, mDirection, mTimepoint);
