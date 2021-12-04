@@ -175,46 +175,60 @@ public class KRTActivity extends Activity {
                     listOfTimes = rt8Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "10 Northgate/Hillcrest Drive":
-                    listOfTimes = ItemLoader.getTimes10(mDay, mDirection, mTimepoint);
+                    Rt10Data rt10Data = new Rt10Data();
+                    listOfTimes = rt10Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "11 Wertz Avenue":
-                    listOfTimes = ItemLoader.getTimes11(mDay, mDirection, mTimepoint);
+                    Rt11Data rt11Data = new Rt11Data();
+                    listOfTimes = rt11Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "13 Beech Avenue":
-                    listOfTimes = ItemLoader.getTimes13(mDay, mDirection, mTimepoint);
+                    Rt13Data rt13Data = new Rt13Data();
+                    listOfTimes = rt13Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "14 City Park":
-                    listOfTimes = ItemLoader.getTimes14(mDay, mDirection, mTimepoint);
+                    Rt14Data rt14Data = new Rt14Data();
+                    listOfTimes = rt14Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "15 South Hills":
-                    listOfTimes = ItemLoader.getTimes15(mDay, mDirection, mTimepoint);
+                    Rt15Data rt15Data = new Rt15Data();
+                    listOfTimes = rt15Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "16 South Park":
-                    listOfTimes = ItemLoader.getTimes16(mDay, mDirection, mTimepoint);
+                    Rt16Data rt16Data = new Rt16Data();
+                    listOfTimes = rt16Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "17 South Side":
-                    listOfTimes = ItemLoader.getTimes17(mDay, mDirection, mTimepoint);
+                    Rt17Data rt17Data = new Rt17Data();
+                    listOfTimes = rt17Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "18 Fort Hill/Montrose":
-                    listOfTimes = ItemLoader.getTimes18(mDay, mDirection, mTimepoint);
+                    Rt18Data rt18Data = new Rt18Data();
+                    listOfTimes = rt18Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "19 Charleston Loop/Trolley":
-                    listOfTimes = ItemLoader.getTimes19(mDay, mDirection, mTimepoint);
+                    Rt19Data rt19Data = new Rt19Data();
+                    listOfTimes = rt19Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "20 Virginia St/Capitol Complex":
-                    listOfTimes = ItemLoader.getTimes20(mDay, mDirection, mTimepoint);
+                    Rt20Data rt20Data = new Rt20Data();
+                    listOfTimes = rt20Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "21 Southridge/Trace Fork/Dudley Farms":
-                    listOfTimes = ItemLoader.getTimes21(mDay, mDirection, mTimepoint);
+                    Rt21Data rt21Data = new Rt21Data();
+                    listOfTimes = rt21Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "22M Montgomery":
-                    listOfTimes = ItemLoader.getTimes22M(mDay, mDirection, mTimepoint);
+                    Rt22MData rt22MData = new Rt22MData();
+                    listOfTimes = rt22MData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "22Q Quincy Mall":
-                    listOfTimes = ItemLoader.getTimes22Q(mDay, mDirection, mTimepoint);
+                    Rt22QData rt22QData = new Rt22QData();
+                    listOfTimes = rt22QData.getTimes(mDay, mDirection, mTimepoint);
                     break;
                 case "23 Clendenin":
-                    listOfTimes = ItemLoader.getTimes23(mDay, mDirection, mTimepoint);
+                    Rt23Data rt23Data = new Rt23Data();
+                    listOfTimes = rt23Data.getTimes(mDay, mDirection, mTimepoint);
                     break;
             }
 

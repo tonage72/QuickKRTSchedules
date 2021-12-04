@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Rt19Data {
 
-    protected static String[] getTimes19(String mDay, String mDirection, String mTimepoint) {
+    protected String[] getTimes(String mDay, String mDirection, String mTimepoint) {
 
         ArrayList<String> mTimesList = new ArrayList<>();
 
