@@ -4,10 +4,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:fullBackupOnly="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:exported="true"
             android:name="fleming.david.com.quickkrtschedules.KRTActivity"
             android:label="@string/app_name" >
             <intent-filter>
