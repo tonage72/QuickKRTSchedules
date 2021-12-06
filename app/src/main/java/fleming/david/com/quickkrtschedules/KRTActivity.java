@@ -235,7 +235,7 @@ public class KRTActivity extends Activity {
             separatorText.setText(getString(R.string.select_timepoint));
 
             String mDash = "-";
-            Boolean stringCompare;
+            boolean stringCompare;
 
             LinearLayout layout = findViewById(R.id.mainLayout);
 

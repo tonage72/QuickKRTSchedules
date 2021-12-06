@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TimepointsData {
 
-    protected static String[] getTimepoints(String mRouteSelected,String mDaySelected,String mDirectionSelected) {
+    protected String[] getTimepoints(String mRouteSelected,String mDaySelected,String mDirectionSelected) {
 
         ArrayList<String> mTimepointsList = new ArrayList<>();
 

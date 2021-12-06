@@ -29,7 +29,7 @@ public class TimepointSelectActivity extends Activity {
 
         TimepointsData timepointsData = new TimepointsData();
 
-        String[] timepointsArray = TimepointsData.getTimepoints(routeSelected,daySelected,directionSelected);
+        String[] timepointsArray = timepointsData.getTimepoints(routeSelected,daySelected,directionSelected);
 
         LinearLayout layout = findViewById(R.id.TimepointLayout);
 

@@ -45,7 +45,8 @@ public class ListEntireTripActivity extends Activity {
             startActivity(intent1);
         });
 
-        final String[] timepointsArray = TimepointsData.getTimepoints(mRoute,mDay,mDirection);
+        TimepointsData timepointsData = new TimepointsData();
+        final String[] timepointsArray = timepointsData.getTimepoints(mRoute,mDay,mDirection);
 
         String[] listOfTimes;
 
