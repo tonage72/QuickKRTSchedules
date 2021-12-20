@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonBack"/>
+            android:id="@+id/textViewBack"/>
 
         <TextView
-            android:id="@+id/TripTextView"
+            android:id="@+id/tripTextView"
             android:textColor="@android:color/white"
             android:gravity="center"
             android:layout_width="match_parent"

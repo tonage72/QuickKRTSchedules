@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/menu_background_color">
 
     <LinearLayout
         android:id="@+id/originalButtonLayout"
@@ -10,30 +11,55 @@
         android:orientation="vertical"
         android:background="@color/menu_background_color">
 
-        <Button
-            android:id="@+id/buttonRoute"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewRoute"
+            android:layout_marginTop="@dimen/menuitemsmarginabove"
+            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/teal_200"
+            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:background="@drawable/rounded_corner_menu_items"
+            android:textSize="@dimen/menutextsize" />
 
-        <Button
-            android:id="@+id/buttonDay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewDay"
+            android:layout_marginTop="@dimen/menuitemsmarginabove"
+            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/teal_200"
+            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:background="@drawable/rounded_corner_menu_items"
+            android:textSize="@dimen/menutextsize" />
 
-        <Button
-            android:id="@+id/buttonDirection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewDirection"
+            android:layout_marginTop="@dimen/menuitemsmarginabove"
+            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/teal_200"
+            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:background="@drawable/rounded_corner_menu_items"
+            android:textSize="@dimen/menutextsize" />
 
-        <Button
-            android:id="@+id/buttonTimepoint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewTimepoint"
+            android:layout_marginTop="@dimen/menuitemsmarginabove"
+            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/teal_200"
+            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:background="@drawable/rounded_corner_menu_items"
+            android:textSize="@dimen/menutextsize" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/seperatorMessage"
+        android:layout_marginTop="@dimen/menuitemsmarginabove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -49,7 +75,7 @@
         <LinearLayout
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 

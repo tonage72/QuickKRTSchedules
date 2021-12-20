@@ -1,4 +1,8 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="margin">0dp</dimen>
+    <dimen name="mainviewpadding">10dp</dimen>
+    <dimen name="menutextsize">20sp</dimen>
+    <dimen name="menutextviewwidth">290dp</dimen>
+    <dimen name="menuitemsmarginabove">10dp</dimen>
+    <dimen name="menuItemsPadLeft">8dp</dimen>
 </resources>

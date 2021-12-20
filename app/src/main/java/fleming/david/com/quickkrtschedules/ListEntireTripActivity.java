@@ -3,7 +3,7 @@ package fleming.david.com.quickkrtschedules;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.TextView;
 
 public class ListEntireTripActivity extends Activity {
@@ -24,9 +24,9 @@ public class ListEntireTripActivity extends Activity {
 
         Intent intent = getIntent();
 
-        TextView textView = findViewById(R.id.TripTextView);
+        TextView textView = findViewById(R.id.tripTextView);
 
-        Button buttonBack = findViewById(R.id.buttonBack);
+        TextView TextViewBack = findViewById(R.id.textViewBack);
 
         final String mRoute = intent.getStringExtra("routeSelected");
         final String mDay = intent.getStringExtra("daySelected");
@@ -35,8 +35,8 @@ public class ListEntireTripActivity extends Activity {
         final int mTimeSlotSelected = intent.getIntExtra("timeSlotSelected", 0);
 
 
-        buttonBack.setText(getString(R.string.go_back));
-        buttonBack.setOnClickListener(v -> {
+        TextViewBack.setText(getString(R.string.go_back));
+        TextViewBack.setOnClickListener(v -> {
             Intent intent1 = new Intent(ListEntireTripActivity.this, KRTActivity.class);
             intent1.putExtra("routeSelected", mRoute);
             intent1.putExtra("daySelected", mDay);

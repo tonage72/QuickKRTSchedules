@@ -3,7 +3,7 @@ package fleming.david.com.quickkrtschedules;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.LinearLayout;
 
 public class DaySelectActivity extends Activity {
@@ -32,12 +32,12 @@ public class DaySelectActivity extends Activity {
         LinearLayout layout = findViewById(R.id.DaysLayout);
 
         for (final String desc : daysArray) {
-            Button newBtn = new Button(this);
-            newBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            newBtn.setText(desc);
-            layout.addView(newBtn);
+            TextView textView = new TextView(this);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            textView.setText(desc);
+            layout.addView(textView);
 
-            newBtn.setOnClickListener(v -> {
+            textView.setOnClickListener(v -> {
                 Intent intent1 = new Intent(DaySelectActivity.this, KRTActivity.class);
                 intent1.putExtra("routeSelected", routeSelected);
                 intent1.putExtra("daySelected", desc);

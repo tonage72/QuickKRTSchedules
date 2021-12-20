@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,35 +30,36 @@ public class KRTActivity extends Activity {
 
         TextView separatorText = findViewById(R.id.seperatorMessage);
 
-        Button buttonRoute = findViewById(R.id.buttonRoute);
-        Button buttonDay = findViewById(R.id.buttonDay);
-        Button buttonDirection = findViewById(R.id.buttonDirection);
-        Button buttonTimepoint = findViewById(R.id.buttonTimepoint);
+        TextView textViewRoute = findViewById(R.id.textViewRoute);
+        //textViewRoute.setPadding(15,0,0,0);
+        TextView textViewDay = findViewById(R.id.textViewDay);
+        TextView textViewDirection = findViewById(R.id.textViewDirection);
+        TextView textViewTimepoint = findViewById(R.id.textViewTimepoint);
 
-        //Set up route button.
+        //Set up route TextView.
         if (intent.hasExtra("routeSelected")) {
-            buttonRoute.setText(intent.getStringExtra("routeSelected"));
+            textViewRoute.setText(intent.getStringExtra("routeSelected"));
         } else {
-            buttonRoute.setText(getString(R.string.no_route));
-            currentSelectButton(buttonRoute);
+            textViewRoute.setText(getString(R.string.no_route));
+            currentSelectTextView(textViewRoute);
         }
 
-        buttonRoute.setOnClickListener(v -> {
+        textViewRoute.setOnClickListener(v -> {
             Intent intentRouteSelect = new Intent(KRTActivity.this, RouteSelectActivity.class);
             startActivity(intentRouteSelect);
         });
 
-        //Set up day button
+        //Set up day TextView
         if (intent.hasExtra("routeSelected")) {
 
             if (intent.hasExtra("daySelected")) {
-                buttonDay.setText(intent.getStringExtra("daySelected"));
+                textViewDay.setText(intent.getStringExtra("daySelected"));
             } else {
-                buttonDay.setText(getString(R.string.no_day));
-                currentSelectButton(buttonDay);
+                textViewDay.setText(getString(R.string.no_day));
+                currentSelectTextView(textViewDay);
             }
 
-            buttonDay.setOnClickListener(v -> {
+            textViewDay.setOnClickListener(v -> {
 
                 final String mRoute = intent.getStringExtra("routeSelected");
 
@@ -66,22 +69,22 @@ public class KRTActivity extends Activity {
             });
 
         } else {
-            buttonDay.setEnabled(false);
-            buttonDay.setText(getString(R.string.route_first));
-            selectPreviousFirst(buttonDay);
+            textViewDay.setEnabled(false);
+            textViewDay.setText(getString(R.string.route_first));
+            selectPreviousFirst(textViewDay);
         }
 
-        //Set up direction button
+        //Set up direction TextView
         if (intent.hasExtra("daySelected")) {
 
             if (intent.hasExtra("directionSelected")) {
-                buttonDirection.setText(intent.getStringExtra("directionSelected"));
+                textViewDirection.setText(intent.getStringExtra("directionSelected"));
             } else {
-                buttonDirection.setText(getString(R.string.no_direction));
-                currentSelectButton(buttonDirection);
+                textViewDirection.setText(getString(R.string.no_direction));
+                currentSelectTextView(textViewDirection);
             }
 
-            buttonDirection.setOnClickListener(v -> {
+            textViewDirection.setOnClickListener(v -> {
 
                 final String mRoute = intent.getStringExtra("routeSelected");
                 final String mDay = intent.getStringExtra("daySelected");
@@ -93,22 +96,22 @@ public class KRTActivity extends Activity {
             });
 
         } else {
-            buttonDirection.setEnabled(false);
-            buttonDirection.setText(getString(R.string.day_first));
-            selectPreviousFirst(buttonDirection);
+            textViewDirection.setEnabled(false);
+            textViewDirection.setText(getString(R.string.day_first));
+            selectPreviousFirst(textViewDirection);
         }
 
-        //Set up timepoint button
+        //Set up timepoint TextView
         if (intent.hasExtra("directionSelected")) {
 
             if (intent.hasExtra("timepointSelected")) {
-                buttonTimepoint.setText(intent.getStringExtra("timepointSelected"));
+                textViewTimepoint.setText(intent.getStringExtra("timepointSelected"));
             } else {
-                buttonTimepoint.setText(getString(R.string.no_timepoint));
-                currentSelectButton(buttonTimepoint);
+                textViewTimepoint.setText(getString(R.string.no_timepoint));
+                currentSelectTextView(textViewTimepoint);
             }
 
-            buttonTimepoint.setOnClickListener(v -> {
+            textViewTimepoint.setOnClickListener(v -> {
 
                 final String mRoute = intent.getStringExtra("routeSelected");
                 final String mDay = intent.getStringExtra("daySelected");
@@ -121,9 +124,9 @@ public class KRTActivity extends Activity {
                 startActivity(intent13);
             });
         } else {
-            buttonTimepoint.setEnabled(false);
-            buttonTimepoint.setText(getString(R.string.direction_first));
-            selectPreviousFirst(buttonTimepoint);
+            textViewTimepoint.setEnabled(false);
+            textViewTimepoint.setText(getString(R.string.direction_first));
+            selectPreviousFirst(textViewTimepoint);
         }
 
         if (intent.hasExtra("timepointSelected")) {
@@ -245,14 +248,14 @@ public class KRTActivity extends Activity {
                 i = i + 1;
                 stringCompare = desc.equals(mDash);
                 if (!stringCompare) {
-                    Button newBtn = new Button(this);
-                    newBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                    newBtn.setText(desc);
-                    layout.addView(newBtn);
+                    TextView textView = new TextView(this);
+                    textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    textView.setText(desc);
+                    layout.addView(textView);
 
                     final int timeSlotSelected = i;
 
-                    newBtn.setOnClickListener(v -> {
+                    textView.setOnClickListener(v -> {
                         Intent intent15 = new Intent(KRTActivity.this, ListEntireTripActivity.class);
                         intent15.putExtra("routeSelected", mRoute);
                         intent15.putExtra("daySelected", mDay);
@@ -267,11 +270,11 @@ public class KRTActivity extends Activity {
             separatorText.setText(getString(R.string.select_all));
         }
     }
-    private void currentSelectButton(Button mButton){
-        mButton.setBackgroundColor(Color.YELLOW);
-        mButton.setTextColor(Color.BLACK);
+    private void currentSelectTextView(TextView mTextView){
+        mTextView.setBackgroundResource(R.drawable.rounded_corner_menu_items_select_me);
+        mTextView.setTextColor(Color.BLACK);
     }
-    private void selectPreviousFirst(Button mButton){
-        mButton.setTextColor(Color.RED);
+    private void selectPreviousFirst(TextView mTextView){
+        mTextView.setTextColor(Color.RED);
     }
 }

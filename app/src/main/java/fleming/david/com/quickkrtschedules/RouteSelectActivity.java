@@ -3,7 +3,7 @@ package fleming.david.com.quickkrtschedules;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.LinearLayout;
 
 public class RouteSelectActivity extends Activity {
@@ -26,12 +26,12 @@ public class RouteSelectActivity extends Activity {
         LinearLayout layout = findViewById(R.id.RoutesLayout);
 
         for (final String desc : routeItems) {
-            Button newBtn = new Button(this);
-            newBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            newBtn.setText(desc);
-            layout.addView(newBtn);
+            TextView textView = new TextView(this);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            textView.setText(desc);
+            layout.addView(textView);
 
-            newBtn.setOnClickListener(v -> {
+            textView.setOnClickListener(v -> {
                 Intent intent = new Intent(RouteSelectActivity.this, KRTActivity.class);
                 intent.putExtra("routeSelected", desc);
                 startActivity(intent);
