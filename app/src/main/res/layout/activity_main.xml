@@ -14,44 +14,48 @@
         <TextView
             android:id="@+id/textViewRoute"
             android:layout_marginTop="@dimen/menuitemsmarginabove"
-            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/teal_200"
-            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:paddingStart="@dimen/menuItemsPadStart"
+            android:paddingEnd="@dimen/menuItemsPadEnd"
             android:background="@drawable/rounded_corner_menu_items"
             android:textSize="@dimen/menutextsize" />
 
         <TextView
             android:id="@+id/textViewDay"
             android:layout_marginTop="@dimen/menuitemsmarginabove"
-            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/teal_200"
-            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:paddingStart="@dimen/menuItemsPadStart"
+            android:paddingEnd="@dimen/menuItemsPadEnd"
             android:background="@drawable/rounded_corner_menu_items"
             android:textSize="@dimen/menutextsize" />
 
         <TextView
             android:id="@+id/textViewDirection"
             android:layout_marginTop="@dimen/menuitemsmarginabove"
-            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/teal_200"
-            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:paddingStart="@dimen/menuItemsPadStart"
+            android:paddingEnd="@dimen/menuItemsPadEnd"
             android:background="@drawable/rounded_corner_menu_items"
             android:textSize="@dimen/menutextsize" />
 
         <TextView
             android:id="@+id/textViewTimepoint"
             android:layout_marginTop="@dimen/menuitemsmarginabove"
-            android:layout_width="@dimen/menutextviewwidth"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/teal_200"
-            android:paddingLeft="@dimen/menuItemsPadLeft"
+            android:paddingStart="@dimen/menuItemsPadStart"
+            android:paddingEnd="@dimen/menuItemsPadEnd"
             android:background="@drawable/rounded_corner_menu_items"
             android:textSize="@dimen/menutextsize" />
 

@@ -33,7 +33,6 @@ public class DaySelectActivity extends Activity {
 
         for (final String desc : daysArray) {
             TextView textView = new TextView(this);
-            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             textView.setText(desc);
             layout.addView(textView);
 

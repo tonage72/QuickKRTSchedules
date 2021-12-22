@@ -31,7 +31,6 @@ public class KRTActivity extends Activity {
         TextView separatorText = findViewById(R.id.seperatorMessage);
 
         TextView textViewRoute = findViewById(R.id.textViewRoute);
-        //textViewRoute.setPadding(15,0,0,0);
         TextView textViewDay = findViewById(R.id.textViewDay);
         TextView textViewDirection = findViewById(R.id.textViewDirection);
         TextView textViewTimepoint = findViewById(R.id.textViewTimepoint);
@@ -249,7 +248,6 @@ public class KRTActivity extends Activity {
                 stringCompare = desc.equals(mDash);
                 if (!stringCompare) {
                     TextView textView = new TextView(this);
-                    textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     textView.setText(desc);
                     layout.addView(textView);
 
