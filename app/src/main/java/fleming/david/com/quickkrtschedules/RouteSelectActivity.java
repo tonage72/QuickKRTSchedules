@@ -4,12 +4,9 @@ import static fleming.david.com.quickkrtschedules.R.*;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.TextView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class RouteSelectActivity extends Activity {
 
@@ -29,37 +26,10 @@ public class RouteSelectActivity extends Activity {
 
         final String[] routeItems = getResources().getStringArray(array.routes_arrays);
 
-        //        int textSizePixels = 20;
-//        int paddingLeft = getResources().getDimensionPixelSize(dimen.menuItemsPadStart);
-//        int paddingRight = getResources().getDimensionPixelSize(dimen.menuItemsPadEnd);
-//        int marginTop = getResources().getDimensionPixelSize(dimen.menuitemsmarginabove);
-
         LinearLayout linearLayout = findViewById(id.routesLayout);
         Context context = getApplicationContext();
-        //TextViewMenuCreation viewMenuCreation = new TextViewMenuCreation(this);
-        //Context context = getApplicationContext();
 
         TextViewMenuCreation textViewMenuCreation = new TextViewMenuCreation();
         textViewMenuCreation.createMenu(routeItems, linearLayout, context);
-
-
-//        for (final String desc : routeItems) {
-//            TextView textView = new TextView(this);
-//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-//            params.setMargins(0,marginTop,0,0);
-//            textView.setLayoutParams(params);
-//            textView.setBackgroundResource(drawable.rounded_corner_menu_items);
-//            textView.setTextColor(Color.parseColor("#FF03DAC5"));
-//            textView.setPadding(paddingLeft,0, paddingRight,0);
-//            textView.setTextSize(textSizePixels);
-//            textView.setText(desc);
-//            layout.addView(textView);
-//
-//            textView.setOnClickListener(v -> {
-//                Intent intent = new Intent(RouteSelectActivity.this, KRTActivity.class);
-//                intent.putExtra("routeSelected", desc);
-//                startActivity(intent);
-//            });
-//        }
     }
 }

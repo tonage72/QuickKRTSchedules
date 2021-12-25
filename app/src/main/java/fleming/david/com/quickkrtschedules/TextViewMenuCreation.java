@@ -26,10 +26,12 @@ public class TextViewMenuCreation extends Activity {
             textView.setPadding(paddingLeft,0, paddingRight,0);
             textView.setTextSize(textSizePixels);
             textView.setText(desc);
+            textView.setTag(desc);
             linearLayout.addView(textView);
 
             textView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, KRTActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("routeSelected", desc);
                 context.startActivity(intent);
             });
