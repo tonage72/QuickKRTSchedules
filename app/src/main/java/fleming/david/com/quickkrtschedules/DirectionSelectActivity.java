@@ -1,6 +1,7 @@
 package fleming.david.com.quickkrtschedules;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -17,29 +18,26 @@ public class DirectionSelectActivity extends Activity {
     protected void onResume() {
         super.onResume();
         setContentView(R.layout.activity_direction_select);
-
-        Intent intent = getIntent();
-
-        final String routeSelected = intent.getStringExtra("routeSelected");
-        final String daySelected = intent.getStringExtra("daySelected");
-
+        Intent importedIntent = getIntent();
+        final String routeSelected = importedIntent.getStringExtra("routeSelected");
+        final String daySelected = importedIntent.getStringExtra("daySelected");
         DirectionsData directionsData = new DirectionsData();
+        String[] menuItems = directionsData.getDirections(routeSelected);
+        LinearLayout linearLayout = findViewById(R.id.DirectionLayout);
+        Context context = getApplicationContext();
+        TextViewMenuCreation textViewMenuCreation = new TextViewMenuCreation();
 
-        String[] directionsArray = directionsData.getDirections(routeSelected);
 
-        LinearLayout layout = findViewById(R.id.DirectionLayout);
-
-        for (final String desc : directionsArray) {
-            TextView textView = new TextView(this);
-            textView.setText(desc);
-            layout.addView(textView);
+        for (final String desc : menuItems) {
+            TextView textView = textViewMenuCreation.createMenu(context, desc);
+            linearLayout.addView(textView);
 
             textView.setOnClickListener(v -> {
-                Intent intent1 = new Intent(DirectionSelectActivity.this, KRTActivity.class);
-                intent1.putExtra("routeSelected", routeSelected);
-                intent1.putExtra("daySelected", daySelected);
-                intent1.putExtra("directionSelected", desc);
-                startActivity(intent1);
+                Intent intent = new Intent(DirectionSelectActivity.this, KRTActivity.class);
+                intent.putExtra("routeSelected", routeSelected);
+                intent.putExtra("daySelected", daySelected);
+                intent.putExtra("directionSelected", desc);
+                startActivity(intent);
             });
         }
     }

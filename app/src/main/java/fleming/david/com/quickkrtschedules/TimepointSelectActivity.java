@@ -1,6 +1,7 @@
 package fleming.david.com.quickkrtschedules;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -20,32 +21,27 @@ public class TimepointSelectActivity extends Activity {
     protected void onResume() {
         super.onResume();
         setContentView(R.layout.activity_timepoint_select);
-
-        Intent intent = getIntent();
-
-        final String routeSelected = intent.getStringExtra("routeSelected");
-        final String daySelected = intent.getStringExtra("daySelected");
-        final String directionSelected = intent.getStringExtra("directionSelected");
-
+        Intent Importedintent = getIntent();
+        final String routeSelected = Importedintent.getStringExtra("routeSelected");
+        final String daySelected = Importedintent.getStringExtra("daySelected");
+        final String directionSelected = Importedintent.getStringExtra("directionSelected");
         TimepointsData timepointsData = new TimepointsData();
-
         String[] timepointsArray = timepointsData.getTimepoints(routeSelected,daySelected,directionSelected);
-
-        LinearLayout layout = findViewById(R.id.TimepointLayout);
+        LinearLayout linearLayout = findViewById(R.id.TimepointLayout);
+        Context context = getApplicationContext();
+        TextViewMenuCreation textViewMenuCreation = new TextViewMenuCreation();
 
         for (final String desc : timepointsArray) {
-            TextView textView = new TextView(this);
-            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            textView.setText(desc);
-            layout.addView(textView);
+            TextView textView = textViewMenuCreation.createMenu(context, desc);
+            linearLayout.addView(textView);
 
             textView.setOnClickListener(v -> {
-                Intent intent1 = new Intent(TimepointSelectActivity.this, KRTActivity.class);
-                intent1.putExtra("routeSelected", routeSelected);
-                intent1.putExtra("daySelected", daySelected);
-                intent1.putExtra("directionSelected", directionSelected);
-                intent1.putExtra("timepointSelected", desc);
-                startActivity(intent1);
+                Intent intent = new Intent(TimepointSelectActivity.this, KRTActivity.class);
+                intent.putExtra("routeSelected", routeSelected);
+                intent.putExtra("daySelected", daySelected);
+                intent.putExtra("directionSelected", directionSelected);
+                intent.putExtra("timepointSelected", desc);
+                startActivity(intent);
             });
         }
     }

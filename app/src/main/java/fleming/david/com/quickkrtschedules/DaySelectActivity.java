@@ -1,6 +1,7 @@
 package fleming.david.com.quickkrtschedules;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -20,27 +21,23 @@ public class DaySelectActivity extends Activity {
     protected void onResume() {
         super.onResume();
         setContentView(R.layout.activity_day_select);
-
-        Intent intent = getIntent();
-
-        final String routeSelected = intent.getStringExtra("routeSelected");
-
+        Intent importedIntent = getIntent();
+        final String routeSelected = importedIntent.getStringExtra("routeSelected");
         DaysData daysData = new DaysData();
+        String[] menuItems = daysData.getDays(routeSelected);
+        LinearLayout linearLayout = findViewById(R.id.DaysLayout);
+        Context context = getApplicationContext();
+        TextViewMenuCreation textViewMenuCreation = new TextViewMenuCreation();
 
-        String[] daysArray = daysData.getDays(routeSelected);
-
-        LinearLayout layout = findViewById(R.id.DaysLayout);
-
-        for (final String desc : daysArray) {
-            TextView textView = new TextView(this);
-            textView.setText(desc);
-            layout.addView(textView);
+        for (final String desc : menuItems) {
+            TextView textView = textViewMenuCreation.createMenu(context, desc);
+            linearLayout.addView(textView);
 
             textView.setOnClickListener(v -> {
-                Intent intent1 = new Intent(DaySelectActivity.this, KRTActivity.class);
-                intent1.putExtra("routeSelected", routeSelected);
-                intent1.putExtra("daySelected", desc);
-                startActivity(intent1);
+                Intent intent = new Intent(DaySelectActivity.this, KRTActivity.class);
+                intent.putExtra("routeSelected", routeSelected);
+                intent.putExtra("daySelected", desc);
+                startActivity(intent);
             });
         }
     }
