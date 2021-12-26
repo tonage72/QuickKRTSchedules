@@ -1,6 +1,7 @@
 package fleming.david.com.quickkrtschedules;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,9 +11,11 @@ import android.widget.TextView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.net.ContentHandler;
+
 public class KRTActivity extends Activity {
 
-        private String[] listOfTimes;
+    private String[] listOfTimes;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,23 +239,21 @@ public class KRTActivity extends Activity {
 
             separatorText.setText(getString(R.string.select_timepoint));
 
+            LinearLayout linearLayout = findViewById(R.id.mainLayout);
+            Context context = getApplicationContext();
+            TextViewMenuCreation textViewMenuCreation = new TextViewMenuCreation();
+
             String mDash = "-";
-            boolean stringCompare;
-
-            LinearLayout layout = findViewById(R.id.mainLayout);
-
             int i = -1;
 
             for (final String desc : listOfTimes) {
                 i = i + 1;
-                stringCompare = desc.equals(mDash);
+                boolean stringCompare = desc.equals(mDash);
+
                 if (!stringCompare) {
-                    TextView textView = new TextView(this);
-                    textView.setText(desc);
-                    layout.addView(textView);
-
+                    TextView textView = textViewMenuCreation.createMenu(context, desc);
+                    linearLayout.addView(textView);
                     final int timeSlotSelected = i;
-
                     textView.setOnClickListener(v -> {
                         Intent intent15 = new Intent(KRTActivity.this, ListEntireTripActivity.class);
                         intent15.putExtra("routeSelected", mRoute);

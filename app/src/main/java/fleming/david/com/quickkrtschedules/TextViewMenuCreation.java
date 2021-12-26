@@ -1,5 +1,7 @@
 package fleming.david.com.quickkrtschedules;
 
+import static fleming.david.com.quickkrtschedules.R.*;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -11,20 +13,24 @@ public class TextViewMenuCreation extends Activity {
     protected TextView createMenu(Context context, String desc) {
 
         int textSizePixels = 20;
-        int paddingLeft = context.getResources().getDimensionPixelSize(R.dimen.menuItemsPadStart);
-        int paddingRight = context.getResources().getDimensionPixelSize(R.dimen.menuItemsPadEnd);
-        int marginTop = context.getResources().getDimensionPixelSize(R.dimen.menuitemsmarginabove);
+        int paddingLeft = context.getResources().getDimensionPixelSize(dimen.menuItemsPadStart);
+        int paddingRight = context.getResources().getDimensionPixelSize(dimen.menuItemsPadEnd);
+        int paddingTop = context.getResources().getDimensionPixelSize(dimen.menuItemsPadTop);
+        int paddingBottom = context.getResources().getDimensionPixelSize(dimen.menuItemsPadBottom);
+        int marginTop = context.getResources().getDimensionPixelSize(dimen.menuitemsmarginabove);
+        int marginStart = context.getResources().getDimensionPixelSize(dimen.menuItemsMarginStart);
+        int marginEnd = context.getResources().getDimensionPixelSize(dimen.menuItemsMarginEnd);
+        String textColor = context.getString(color.teal_200);
 
             TextView textView = new TextView(context);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(0,marginTop,0,0);
+            params.setMargins(marginStart, marginTop, marginEnd,0);
             textView.setLayoutParams(params);
-            textView.setBackgroundResource(R.drawable.rounded_corner_menu_items);
-            textView.setTextColor(Color.parseColor("#FF03DAC5"));
-            textView.setPadding(paddingLeft,0, paddingRight,0);
+            textView.setBackgroundResource(drawable.rounded_corner_menu_items);
+            textView.setTextColor(Color.parseColor(textColor));
+            textView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             textView.setTextSize(textSizePixels);
             textView.setText(desc);
-            textView.setTag(desc);
 
             return textView;
       }

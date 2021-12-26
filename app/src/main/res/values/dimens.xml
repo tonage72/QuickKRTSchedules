@@ -3,6 +3,10 @@
     <dimen name="mainviewpadding">10dp</dimen>
     <dimen name="menutextsize">20sp</dimen>
     <dimen name="menuitemsmarginabove">5dp</dimen>
+    <dimen name="menuItemsMarginStart">5dp</dimen>
+    <dimen name="menuItemsMarginEnd">5dp</dimen>
     <dimen name="menuItemsPadStart">8dp</dimen>
     <dimen name="menuItemsPadEnd">8dp</dimen>
+    <dimen name="menuItemsPadTop">4dp</dimen>
+    <dimen name="menuItemsPadBottom">4dp</dimen>
 </resources>

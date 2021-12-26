@@ -1,8 +1,10 @@
 package fleming.david.com.quickkrtschedules;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ListEntireTripActivity extends Activity {
@@ -18,30 +20,26 @@ public class ListEntireTripActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
         setContentView(R.layout.activity_trip_select);
-
-        Intent intent = getIntent();
-
+        Intent importedIntent = getIntent();
         TextView textView = findViewById(R.id.tripTextView);
+        TextView textViewBack = findViewById(R.id.textViewGoBack);
 
-        TextView TextViewBack = findViewById(R.id.textViewBack);
+        final String mRoute = importedIntent.getStringExtra("routeSelected");
+        final String mDay = importedIntent.getStringExtra("daySelected");
+        final String mDirection = importedIntent.getStringExtra("directionSelected");
+        final String mTimepointToReturn = importedIntent.getStringExtra("timepointSelected");
+        final int mTimeSlotSelected = importedIntent.getIntExtra("timeSlotSelected", 0);
 
-        final String mRoute = intent.getStringExtra("routeSelected");
-        final String mDay = intent.getStringExtra("daySelected");
-        final String mDirection = intent.getStringExtra("directionSelected");
-        final String mTimepointToReturn = intent.getStringExtra("timepointSelected");
-        final int mTimeSlotSelected = intent.getIntExtra("timeSlotSelected", 0);
+        textViewBack.setText(R.string.go_back);
 
-
-        TextViewBack.setText(getString(R.string.go_back));
-        TextViewBack.setOnClickListener(v -> {
-            Intent intent1 = new Intent(ListEntireTripActivity.this, KRTActivity.class);
-            intent1.putExtra("routeSelected", mRoute);
-            intent1.putExtra("daySelected", mDay);
-            intent1.putExtra("directionSelected", mDirection);
-            intent1.putExtra("timepointSelected", mTimepointToReturn);
-            startActivity(intent1);
+        textViewBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ListEntireTripActivity.this, KRTActivity.class);
+            intent.putExtra("routeSelected", mRoute);
+            intent.putExtra("daySelected", mDay);
+            intent.putExtra("directionSelected", mDirection);
+            intent.putExtra("timepointSelected", mTimepointToReturn);
+            startActivity(intent);
         });
 
         TimepointsData timepointsData = new TimepointsData();
