@@ -5,13 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import java.net.ContentHandler;
 
 public class KRTActivity extends Activity {
 

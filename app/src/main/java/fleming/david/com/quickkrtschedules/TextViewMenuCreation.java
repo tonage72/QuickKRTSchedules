@@ -5,6 +5,7 @@ import static fleming.david.com.quickkrtschedules.R.*;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.util.TypedValue;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,7 +13,6 @@ public class TextViewMenuCreation extends Activity {
 
     protected TextView createMenu(Context context, String desc) {
 
-        int textSizePixels = 20;
         int paddingLeft = context.getResources().getDimensionPixelSize(dimen.menuItemsPadStart);
         int paddingRight = context.getResources().getDimensionPixelSize(dimen.menuItemsPadEnd);
         int paddingTop = context.getResources().getDimensionPixelSize(dimen.menuItemsPadTop);
@@ -29,10 +29,9 @@ public class TextViewMenuCreation extends Activity {
             textView.setBackgroundResource(drawable.rounded_corner_menu_items);
             textView.setTextColor(Color.parseColor(textColor));
             textView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            textView.setTextSize(textSizePixels);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimensionPixelSize(dimen.menutextsize));
             textView.setText(desc);
 
             return textView;
       }
-
 }
